@@ -28,7 +28,7 @@ public class Tarefa implements Serializable {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getId() {
         return id;
     }
@@ -65,12 +65,13 @@ public class Tarefa implements Serializable {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="lista_id")
     public ListaTarefa getListaTarefa() {
         return listaTarefa;
     }
 
-    public void setListaTarefa(ListaTarefa task_list) {
-        this.listaTarefa = task_list;
+    public void setListaTarefa(ListaTarefa listaTarefa) {
+        this.listaTarefa = listaTarefa;
     }
 
     @Column(name = "status", nullable = false)

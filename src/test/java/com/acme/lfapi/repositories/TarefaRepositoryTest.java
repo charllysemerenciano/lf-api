@@ -76,12 +76,6 @@ public class TarefaRepositoryTest {
     public void testBuscaPorListaId() {
         List<Tarefa> tarefas = this.tarefaRepository.findByListaTarefaId(id);
         assertEquals(2, tarefas.size());
-
-        Optional<Tarefa> tarefa = this.tarefaRepository.findById(idTarefa1);
-        tarefa.ifPresent(value -> assertEquals(idTarefa1, value.getId()));
-
-        Optional<Tarefa> tarefa2 = this.tarefaRepository.findById(idTarefa1);
-        tarefa2.ifPresent(value -> assertEquals(idTarefa2, value.getId()));
     }
 
 }

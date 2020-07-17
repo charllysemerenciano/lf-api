@@ -18,7 +18,7 @@ public interface TarefaService {
     Tarefa persistir(Tarefa tarefa);
 
     /**
-     * Busca e retorna um tarefa dado um CPF.
+     * Busca e retorna um tarefa dado um ID de lista.
      *
      * @param id
      * @param pageRequest

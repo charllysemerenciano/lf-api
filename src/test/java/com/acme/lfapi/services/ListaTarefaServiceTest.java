@@ -47,7 +47,7 @@ public class ListaTarefaServiceTest {
 
     @Test
     public void testPersistirLista() {
-        ListaTarefa listaTarefa = this.listaTarefaService.persist(new ListaTarefa());
+        ListaTarefa listaTarefa = this.listaTarefaService.persistir(new ListaTarefa());
         assertNotNull(listaTarefa);
     }
 }

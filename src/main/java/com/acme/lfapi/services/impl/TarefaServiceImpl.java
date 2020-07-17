@@ -23,7 +23,6 @@ public class TarefaServiceImpl implements TarefaService {
     private TarefaRepository tarefaRepository;
 
 
-
     @Override
     public Page<Tarefa> buscarPorListaId(Long id, PageRequest pageRequest) {
         log.info("Buscando tarefa por lista ID {}", id);

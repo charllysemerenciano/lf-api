@@ -22,5 +22,5 @@ public interface ListaTarefaService {
      * @param listaTarefa
      * @return TaskList
      */
-    ListaTarefa persist(ListaTarefa listaTarefa);
+    ListaTarefa persistir(ListaTarefa listaTarefa);
 }

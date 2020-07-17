@@ -25,7 +25,7 @@ public class ListaTarefaServiceImpl implements ListaTarefaService {
     }
 
     @Override
-    public ListaTarefa persist(ListaTarefa listaTarefa) {
+    public ListaTarefa persistir(ListaTarefa listaTarefa) {
         log.info("gravando lista");
         return this.listaTarefaRepository.save(listaTarefa);
     }

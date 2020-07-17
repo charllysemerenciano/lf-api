@@ -1,5 +1,6 @@
 package com.acme.lfapi.repositories;
 
+import com.acme.lfapi.entities.ListaTarefa;
 import com.acme.lfapi.entities.Tarefa;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,6 +25,7 @@ public interface TarefaRepository extends JpaRepository<Tarefa, Long> {
     Page<Tarefa> findByListaTarefaId(@Param("listaTarefaId") Long listaTarefaId, Pageable pageable);
 
     Optional<Tarefa> findById(Long id);
+
 
     @Override
     void deleteById(Long id);
