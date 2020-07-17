@@ -23,4 +23,6 @@ public interface ListaTarefaService {
      * @return TaskList
      */
     ListaTarefa persistir(ListaTarefa listaTarefa);
+
+    void remover(Long id);
 }

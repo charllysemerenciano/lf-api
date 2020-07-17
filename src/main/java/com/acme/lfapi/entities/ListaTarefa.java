@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 @Table(name = "lista_tarefa")
@@ -41,6 +42,11 @@ public class ListaTarefa implements Serializable {
 
     public void setNomeLista(String name_tasklist) {
         this.nomeLista = name_tasklist;
+    }
+
+    @Transient
+    public Optional<String> getListaOpt() {
+        return Optional.ofNullable(nomeLista);
     }
 
     @Column(name = "data_criacao", nullable = false)

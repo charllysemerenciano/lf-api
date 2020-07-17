@@ -6,6 +6,7 @@ import com.acme.lfapi.enums.StatusTarefa;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Optional;
 
 @Entity
 @Table(name = "tarefa")
@@ -42,8 +43,13 @@ public class Tarefa implements Serializable {
         return tarefa;
     }
 
-    public void setTarefa(String name_task) {
-        this.tarefa = name_task;
+    @Transient
+    public Optional<String> getTarefaOpt() {
+        return Optional.ofNullable(tarefa);
+    }
+
+    public void setTarefa(String tarefa) {
+        this.tarefa = tarefa;
     }
 
     @Column(name = "data_criacao", nullable = false)
@@ -77,6 +83,11 @@ public class Tarefa implements Serializable {
     @Column(name = "status", nullable = false)
     public StatusTarefa getStatus() {
         return status;
+    }
+
+    @Transient
+    public Optional<StatusTarefa> getStatusOpt() {
+        return Optional.ofNullable(status);
     }
 
     public void setStatus(StatusTarefa status) {

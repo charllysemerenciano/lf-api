@@ -29,4 +29,9 @@ public class ListaTarefaServiceImpl implements ListaTarefaService {
         log.info("gravando lista");
         return this.listaTarefaRepository.save(listaTarefa);
     }
+
+    public void remover(Long id) {
+        log.info("Removendo o Lista de tarefa ID {}", id);
+        this.listaTarefaRepository.deleteById(id);
+    }
 }

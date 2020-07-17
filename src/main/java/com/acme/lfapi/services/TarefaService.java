@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -21,10 +22,9 @@ public interface TarefaService {
      * Busca e retorna um tarefa dado um ID de lista.
      *
      * @param id
-     * @param pageRequest
      * @return Optional<ListaTarefa>
      */
-    Page<Tarefa> buscarPorListaId(Long id, PageRequest pageRequest);
+    List<Tarefa> buscarPorListaId(Long id);
 
 
     /**
@@ -37,7 +37,7 @@ public interface TarefaService {
 
 
     /**
-     * Remove um lançamento da base de dados.
+     * Remove um tarefa da base de dados.
      *
      * @param id
      */

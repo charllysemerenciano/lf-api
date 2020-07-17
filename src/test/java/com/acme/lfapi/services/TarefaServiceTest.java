@@ -18,6 +18,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.Assert.assertNotNull;
@@ -44,7 +45,7 @@ public class TarefaServiceTest {
 
     @Test
     public void testBuscarTarefaPorListaId() {
-        Page<Tarefa> tarefas = this.tarefaService.buscarPorListaId(1L, PageRequest.of(0, 5));
+        List<Tarefa> tarefas = this.tarefaService.buscarPorListaId(1L);
 
         assertNotNull(tarefas);
     }

@@ -2,10 +2,12 @@ package com.acme.lfapi.dtos;
 
 import com.acme.lfapi.enums.StatusTarefa;
 
-public class TarefaDto {
+import java.util.Optional;
+
+public class TarefaUpdateDto {
     private Long id;
-    private String nomeTarefa;
-    private StatusTarefa status;
+    private Optional<String> nomeTarefa;
+    private Optional<StatusTarefa> status;
     private Long listaId;
 
     public Long getId() {
@@ -16,19 +18,19 @@ public class TarefaDto {
         this.id = id;
     }
 
-    public String getNomeTarefa() {
+    public Optional<String> getNomeTarefa() {
         return nomeTarefa;
     }
 
-    public void setNomeTarefa(String nomeTarefa) {
+    public void setNomeTarefa(Optional<String> nomeTarefa) {
         this.nomeTarefa = nomeTarefa;
     }
 
-    public StatusTarefa getStatus() {
+    public Optional<StatusTarefa> getStatus() {
         return status;
     }
 
-    public void setStatus(StatusTarefa status) {
+    public void setStatus(Optional<StatusTarefa> status) {
         this.status = status;
     }
 
@@ -42,7 +44,6 @@ public class TarefaDto {
 
     @Override
     public String toString() {
-        return "TarefaDto [id=" + id + ", nomeTarefa=" + nomeTarefa + ", status=" + status + "]";
+        return "TarefaUpdateDto [id=" + id + ", nomeTarefa=" + nomeTarefa + ", status=" + status + "]";
     }
 }
-
