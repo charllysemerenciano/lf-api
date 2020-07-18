@@ -2,8 +2,10 @@ package com.acme.lfapi.controllers;
 
 import com.acme.lfapi.dtos.ListaTarefaDto;
 import com.acme.lfapi.dtos.ListaTarefaUpdateDto;
+import com.acme.lfapi.dtos.TarefaDto;
 import com.acme.lfapi.dtos.TarefaUpdateDto;
 import com.acme.lfapi.entities.ListaTarefa;
+import com.acme.lfapi.entities.Tarefa;
 import com.acme.lfapi.enums.StatusListaTarefa;
 import com.acme.lfapi.enums.StatusTarefa;
 import com.acme.lfapi.repositories.ListaTarefaRepository;
@@ -19,6 +21,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 @RestController
 @RequestMapping("/api/listas")
@@ -57,6 +61,19 @@ public class ListaTarefaController {
         return ResponseEntity.ok(response);
     }
 
+
+    @GetMapping
+    public ResponseEntity<Response<ArrayList<ListaTarefaDto>>> geral() {
+        Response<ArrayList<ListaTarefaDto>> response = new Response<>();
+        List<ListaTarefa> todasListas = listaTarefaRepository.findAll();
+
+        ArrayList<ListaTarefaDto> listaTarefas = new ArrayList<>();
+        for (ListaTarefa lista : todasListas) {
+            listaTarefas.add(this.converterListaTarefaDto(lista));
+        }
+        response.setData(listaTarefas);
+        return ResponseEntity.ok(response);
+    }
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<Response<ListaTarefaUpdateDto>> atualizar(@PathVariable("id") int id,
